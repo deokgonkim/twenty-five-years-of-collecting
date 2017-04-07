@@ -31,5 +31,6 @@ for i in range(1, 26):
     #if i % 5 == 0:
     #    monthly_invest_ratio *= .8
     #monthly_invest_ratio *= .95
-    print(str(i) + '년째 : 총 ' + str(sum) + ' (당해 연봉 : ' + str(salary*12) + ', 당해 적립 : ' + str(year_deposit) + ')')
+    fmt = '%2d 년째 : 총 %12.4f 만원 (당해 연봉 : %10.4f 만원, 당해 적립 : %10.4f 만원)'
+    print(fmt % (i, sum, salary*12, year_deposit))
     salary *= ( 1.00 + yearly_salary_increase )
