@@ -5,6 +5,9 @@
 물론, 실제 업계에서 발생하는 숫자와는 상관이 없다. 그냥 소설로 써본것이다.
 '''
 
+# DEBUG
+DEBUG=True
+
 # 계약 단계별 명칭
 CONST_DEPTH = ( '갑', '을', '병', '정', '무', '기', '경', '신', '임', '계' )
 
@@ -22,6 +25,9 @@ def calc_project_budget(budget, level):
     if level == 0:
         return budget
     else:
+        if DEBUG == True:
+            msg = "(사업비 날라가는 소리)'%s'이 사업비중 %5.1f %s을 꿀꺽했습니다."
+            print(msg % (CONST_DEPTH[i-level+1], budget*margin_ratio, CONST_BUDGET))
         return calc_project_budget(budget - ( budget * margin_ratio ), level -1)
 
 i = input("What is your position on the contract? ")
