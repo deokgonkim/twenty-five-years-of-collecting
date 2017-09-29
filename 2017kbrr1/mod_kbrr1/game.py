@@ -2,9 +2,10 @@
 
 import re
 
+
 class DartScore:
-    '''This class defines Score
-    '''
+    """This class defines Score
+    """
     def __init__(self):
         self.score = 0
         self.bonus = None
@@ -28,8 +29,8 @@ class DartScore:
         self.score_modifier.append(fnc)
 
     def finish_score(self):
-        '''점수 계산
-        '''
+        """점수 계산
+        """
         self.tot = self.score
         for f in self.score_modifier:
             self.tot = f(self.tot)
@@ -38,9 +39,10 @@ class DartScore:
     def __str__(self):
         return "<DartScore: score = %d, bonus = %s, option = %s, tot = %d>" % (self.score, self.bonus, self.option, self.tot)
 
+
 class DartScoreCalculator:
-    '''This class is for calculating score of dart game
-    '''
+    """This class is for calculating score of dart game
+    """
     def __init__(self):
         self.score_list = []
         self.score_total = 0
@@ -76,9 +78,10 @@ class DartScoreCalculator:
             return score * -1
         return calc
 
+
 class DartScoreReader:
-    '''This class is for reading score from the user
-    '''
+    """This class is for reading score from the user
+    """
     def __init__(self):
         pass
 
