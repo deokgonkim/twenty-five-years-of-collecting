@@ -106,5 +106,13 @@ class CityStoreLRUCached:
         self.cache_lac[name] = datetime.now().isoformat()
         self.cache_hit[name] = 1
 
+    def get_metric(self):
+        return self.metric_processing_time
+
     def _compute_metric(self, is_hit):
-        pass
+        if is_hit:
+            self.metric_processing_time += self.metric_hit_time
+            self.metric_hit_count += 1
+        else:
+            self.metric_processing_time += self.metric_miss_time
+            self.metric_miss_count += 1
