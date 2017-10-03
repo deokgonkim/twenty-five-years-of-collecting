@@ -25,6 +25,11 @@ assert 0 < len(timetable) <= 2000, "Crew count is invalid(1~2000)"
 
 from mod_kbrr1.shuttle import *
 
-shuttle_bus = ShuttleBus("09:00", n, t)
+supplier = BusSupplier(5)
 
-shuttle_bus.print_time_table()
+agency = BusAgency()
+agency.set_bus_supplier(supplier)
+
+agency.schedule_bus("09:00", 2, 1)
+
+agency.guess_last_bus()
